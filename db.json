@@ -1,0 +1,23 @@
+{
+  "todos": [
+    {
+      "id": "2",
+      "content": "Почитать книгу",
+      "done": true
+    },
+    {
+      "id": "0106",
+      "content": "dfgsfsdfd",
+      "category": "work",
+      "done": false,
+      "createdAt": 1734278565259
+    },
+    {
+      "id": "35ea",
+      "content": "jfhfgjfhjghfj",
+      "category": "personal",
+      "done": false,
+      "createdAt": 1734278581835
+    }
+  ]
+}
