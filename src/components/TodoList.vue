@@ -19,16 +19,12 @@
   
   const props = defineProps({
     todos: Array,
-    apiUrl: String
   });
   
   const todosASC = computed(() => props.todos.sort((a, b) => b.createdAt - a.createdAt));
   
   const removeTodo = (todo) => {
-  const index = props.todos.findIndex(t => t.id === todo.id);
-  if (index !== -1) {
-    props.todos.splice(index, 1);  
-  }
-};
+    emit('updateTodos', props.todos.filter(t => t.id !== todo.id));
+  };
 </script>
   

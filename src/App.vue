@@ -7,36 +7,30 @@
 </template>
 
 <script setup>
-  import { ref, onMounted, provide } from 'vue';
-  import axios from 'axios';
+  import { ref, onMounted } from 'vue';
+  import { fetchTodos, createTodo, deleteTodo } from './common/api';
   import Greeting from './components/Greeting.vue';
   import CreateTodo from './components/CreateTodo.vue';
   import TodoList from './components/TodoList.vue';
 
   const todos = ref([]);
-  const apiUrl = import.meta.env.VITE_SERVER_URL;
 
-  provide('apiUrl', apiUrl);
-
-  const fetchTodos = async () => {
-      try {
-        const response = await axios.get(apiUrl);
-        todos.value = response.data;
-      }   catch (error) {
-        console.error('Error fetching todos:', error);
-      }
+  const loadTodos = async () => {
+    todos.value = await fetchTodos();
   };
 
-
-  const addTodo = (newTodo) => {
-    todos.value.push(newTodo);  
+  const addTodo = async (newTodo) => {
+  const addedTodo = await createTodo(newTodo);
+  todos.value.push(addedTodo);
   };
 
-  const removeTodo = (todoToRemove) => {
-    todos.value = todos.value.filter(todo => todo.id !== todoToRemove.id);
+  const removeTodo = async (todoToRemove) => {
+  await deleteTodo(todoToRemove.id);
+  todos.value = todos.value.filter((todo) => todo.id !== todoToRemove.id);
   };
 
   onMounted(() => {
-    fetchTodos();
+    loadTodos();
   });
 </script>
+

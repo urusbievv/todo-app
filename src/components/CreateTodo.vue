@@ -23,10 +23,7 @@
   
   
 <script setup>
-  import { reactive, inject } from 'vue';
-  import axios from 'axios';
-  
-  const apiUrl = inject('apiUrl');;
+  import { reactive } from 'vue';
   
   const emit = defineEmits(['addTodo']);
 
@@ -37,17 +34,12 @@
       createdAt: new Date().getTime(),
     });
   
-  const addTodo = async () => {
-    if (!newTodo.content.trim() || !newTodo.category) return;
-  
-    try {
-      const response = await axios.post(apiUrl, newTodo);
-      emit('addTodo', response.data);
-    } catch (error) {
-      console.error('Error addTodo', error);
-    }
-    newTodo.content = '';
-    newTodo.category = null;
-  };
+    const addTodo = () => {
+      if (!newTodo.content.trim() || !newTodo.category) return;
+
+      emit('addTodo', { ...newTodo });
+      newTodo.content = '';
+      newTodo.category = null;
+    };
 </script>
   

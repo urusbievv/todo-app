@@ -15,23 +15,16 @@
   </template>
   
   <script setup>
-    
-    import axios from 'axios';
   
     const props = defineProps({
       todo: Object,
-      apiUrl: String,
     });
   
     const emit = defineEmits(['remove']);
 
     const removeTodo = async () => {
-      try {
-        await axios.delete(`${props.apiUrl}/${props.todo.id}`);
-        emit('remove', props.todo);  
-      } catch (error) {
-        console.error('Error deleting todo:', error);
-      }
+      await deleteTodo(props.todo.id); 
+      emit('remove', props.todo);
     };
 </script>
   
