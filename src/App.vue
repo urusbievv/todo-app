@@ -7,14 +7,16 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, provide } from 'vue';
   import axios from 'axios';
   import Greeting from './components/Greeting.vue';
   import CreateTodo from './components/CreateTodo.vue';
   import TodoList from './components/TodoList.vue';
 
   const todos = ref([]);
-  const apiUrl = "http://localhost:5000/todos";
+  const apiUrl = import.meta.env.VITE_SERVER_URL;
+
+  provide('apiUrl', apiUrl);
 
   const fetchTodos = async () => {
       try {

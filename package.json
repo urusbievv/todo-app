@@ -1,21 +1,21 @@
 {
-  "name": "todo-app", /* название проекта */
-  "private": true, /* проект частный */
-  "version": "0.0.0", /* версия */
-  "type": "module", /* модульный тип */
-  "scripts": { /* скрипты для запуска */
-    "dev": "vite", /* запуск сервера с Vite. */
-    "build": "vite build", /* собирает проект */
-    "preview": "vite preview", /*проверка как будет выглядеть проекта */
-    "start": "json-server --watch db.json --port 5000" /*запуск json-server*/
+  "name": "todo-app", 
+  "private": true, 
+  "version": "0.0.0",
+  "type": "module", 
+  "scripts": { 
+    "dev": "vite", 
+    "build": "vite build",
+    "preview": "vite preview", 
+    "start": "json-server --watch db.json --port 5000" 
   },
-  "dependencies": { /* зависимости продакшен */
-    "axios": "^1.7.9", /* версия axios для работы с HTTP-запросом*/
-    "vue": "^3.5.13", /* версия vue */
-    "json-server": "^0.17.0" /* версия json-server */
+  "dependencies": { 
+    "axios": "^1.7.9", 
+    "vue": "^3.5.13", 
+    "json-server": "^0.17.0" 
   },
-  "devDependencies": { /* зависимости для разработки */
-    "@vitejs/plugin-vue": "^5.2.1", /* версия плагина, интегрируещий vue c vite*/
-    "vite": "^6.0.1" /*версия vite*/
+  "devDependencies": { 
+    "@vitejs/plugin-vue": "^5.2.1", 
+    "vite": "^6.0.1"
   }
 }
