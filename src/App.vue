@@ -20,13 +20,13 @@
   };
 
   const addTodo = async (newTodo) => {
-  const addedTodo = await createTodo(newTodo);
-  todos.value.push(addedTodo);
+    const addedTodo = await createTodo(newTodo);
+    todos.value.push(addedTodo);
   };
 
   const removeTodo = async (todoToRemove) => {
-  await deleteTodo(todoToRemove.id);
-  todos.value = todos.value.filter((todo) => todo.id !== todoToRemove.id);
+    await deleteTodo(todoToRemove.id);
+    todos.value = todos.value.filter((todo) => todo.id !== todoToRemove.id);
   };
 
   onMounted(() => {

@@ -21,10 +21,10 @@
     todos: Array,
   });
   
-  const todosASC = computed(() => props.todos.sort((a, b) => b.createdAt - a.createdAt));
+  const todosASC = computed(() => [...props.todos].sort((a, b) => b.createdAt - a.createdAt));
   
   const removeTodo = (todo) => {
-    emit('updateTodos', props.todos.filter(t => t.id !== todo.id));
+    emit('remove', todo);
   };
 </script>
   
