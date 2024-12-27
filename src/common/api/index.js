@@ -7,7 +7,7 @@ async function apiRequest(method, url, data = null) {
     return response.data;
   } catch (error) {
     console.error('Error API:', error.message);
-    throw new Error(error.response?.data?.message || 'Error with API');
+    throw null;
   }
 }
 

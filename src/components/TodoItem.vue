@@ -24,8 +24,12 @@ const props = defineProps({
 const emit = defineEmits(['remove']);
 
 const removeTodo = async () => {
-  await deleteTodo(props.todo.id);
-  emit('remove', props.todo);
+  if (props.todo && props.todo.id) {
+    await deleteTodo(props.todo.id);
+    emit('remove', props.todo);
+  } else {
+    console.error('Todo id is missing');
+  }
 };
 </script>
 

@@ -17,7 +17,9 @@ import { computed } from 'vue';
 import TodoItem from './TodoItem.vue';
 
 const props = defineProps({
-  todos: Array,
+  todos: {
+    type: Array,
+  },
 });
 
 const emit = defineEmits(['remove']);
