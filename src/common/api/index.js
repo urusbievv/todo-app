@@ -1,18 +1,23 @@
 import axios from 'axios';
 import { TODOS_API } from './todos';
 
-async function apiRequest(apiCall) {
+async function apiRequest(method, url, data = null) {
   try {
-    const response = await apiCall();
+    const response = await axios({ method, url, data });
     return response.data;
   } catch (error) {
     console.error('Error API:', error.message);
-    throw new Error(error.response?.data?.message || 'Error with API');
+    throw null;
   }
 }
 
-export const fetchTodos = () => apiRequest(() => axios.get(TODOS_API.GET_TODO_LIST));
+export const fetchTodos = () => apiRequest('get', TODOS_API.GET_TODO_LIST);
 
-export const createTodo = (todo) => apiRequest(() => axios.post(TODOS_API.CREATE_TODO, todo));
+export const createTodo = (todo) => apiRequest('post', TODOS_API.CREATE_TODO, todo);
 
-export const deleteTodo = (id) => apiRequest(() => axios.delete(TODOS_API.DELETE_TODO(id)));
+export const deleteTodo = (id) => apiRequest('delete', TODOS_API.DELETE_TODO(id));
+
+export const fetchTodoById = (id) => apiRequest('get', TODOS_API.GET_TODO_BY_ID(id))
+
+
+

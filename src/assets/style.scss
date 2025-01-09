@@ -219,6 +219,10 @@ input[type="checkbox"] {
   color: $grey;
 }
 
+.todo-detail {
+  padding: 20px;
+}
+
 
 @media (max-width: 400px) {
   .todo-item .actions .delete {

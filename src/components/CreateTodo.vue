@@ -21,24 +21,22 @@
   </section>
 </template>
 
-
 <script setup>
 import { reactive } from 'vue';
 
 const emit = defineEmits(['addTodo']);
 
 const newTodo = reactive({
-    content: '',
-    category: null,
-    done: false,
-    createdAt: new Date().getTime(),
-  });
+  content: '',
+  category: null,
+  done: false,
+  createdAt: new Date().getTime(),
+});
 
-  const addTodo = () => {
-    if (!newTodo.content.trim() || !newTodo.category) return;
-
-    emit('addTodo', { ...newTodo });
-    newTodo.content = '';
-    newTodo.category = null;
-  };
+const addTodo = () => {
+  if (!newTodo.content.trim() || !newTodo.category) return;
+  emit('addTodo', { ...newTodo });
+  newTodo.content = '';
+  newTodo.category = null;
+};
 </script>
