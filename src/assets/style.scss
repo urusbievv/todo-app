@@ -1,13 +1,18 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
 $primary: #dd38e6;
-$work: #3A82EE;
+$blue: #3a82ee;
+$work: $blue;
 $personal: $primary;
-$light: #EEE;
+$light: #eee;
 $grey: #888;
 $dark: #313154;
 $danger: #ff5b57;
 
 $shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
+$blue-shadow: 0px 0px 4px #3978d6;
 $business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
 $personal-glow: 0px 0px 4px rgba(211, 64, 234, 0.75);
 
@@ -15,10 +20,11 @@ $personal-glow: 0px 0px 4px rgba(211, 64, 234, 0.75);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'montserrat', sans-serif;
+  font-family: "montserrat", sans-serif;
 }
 
-input:not([type="radio"]):not([type="checkbox"]), button {
+input:not([type="radio"]):not([type="checkbox"]),
+button {
   appearance: none;
   border: none;
   outline: none;
@@ -54,13 +60,11 @@ h4 {
 
 .greeting__title {
   display: flex;
-  color: $dark;
-  font-size: 1.5rem;
-  font-weight: 700;
-
   input {
     margin-left: 0.5rem;
-    flex: 1 1 0%;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $dark;
     min-width: 0;
   }
 }
@@ -68,10 +72,10 @@ h4 {
 .create-todo input[type="text"] {
   display: block;
   width: 100%;
-  font-size: 1.125rem;
+  font-size: 1.11rem;
   padding: 1rem 1.5rem;
   color: $dark;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: $shadow;
   margin-bottom: 1.5rem;
@@ -89,7 +93,7 @@ h4 {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background-color: #FFF;
+    background-color: #fff;
     border-radius: 0.5rem;
     box-shadow: $shadow;
     cursor: pointer;
@@ -144,17 +148,17 @@ input[type="checkbox"] {
 .create-todo input[type="submit"] {
   display: block;
   width: 100%;
-  font-size: 1.125rem;
+  font-size: 1.12rem;
   padding: 1rem 1.5rem;
-  color: #FFF;
-  background-color: $primary;
+  color: #fff;
+  background-color: $blue;
   border-radius: 0.5rem;
-  box-shadow: $personal-glow;
+  box-shadow: $blue-shadow;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 
   &:hover {
-    opacity: 0.75;
+    opacity: 0.9;
   }
 }
 
@@ -165,7 +169,7 @@ input[type="checkbox"] {
 .todo-list .todo-item {
   display: flex;
   align-items: center;
-  background-color: #FFF;
+  background-color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: $shadow;
@@ -194,7 +198,7 @@ input[type="checkbox"] {
       display: block;
       padding: 0.5rem;
       border-radius: 0.25rem;
-      color: #FFF;
+      color: #fff;
       cursor: pointer;
       transition: 0.2s ease-in-out;
 
@@ -219,13 +223,82 @@ input[type="checkbox"] {
   color: $grey;
 }
 
-.todo-detail {
-  padding: 20px;
-}
-
-
 @media (max-width: 400px) {
   .todo-item .actions .delete {
     margin-left: -50px;
+  }
+}
+
+
+.detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+  &-info {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    width: 100%; 
+    max-width: 900px; 
+    &__label {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    &__input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    &__select {
+      width: 20%; 
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    &__date {
+      border: 1px solid #ccc;
+      padding: 10px 150px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__save {
+      display: flex; 
+      align-items: center;
+      &-button {
+        padding: 10px 20px;
+        background-color: $blue;
+        box-shadow: $blue-shadow;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      &-link {
+        margin-left: 10px;
+        color: #34373a;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline; 
+        }
+      }
+    }
   }
 }

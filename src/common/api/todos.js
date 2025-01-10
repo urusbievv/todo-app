@@ -9,4 +9,5 @@ export const TODOS_API = Object.freeze({
     return url;
   },
   GET_TODO_BY_ID: (id) => `${API_URL}/${id}`, 
+  UPDATE_TODO: (id) => `${API_URL}/${id}`
 });

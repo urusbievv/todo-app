@@ -1,7 +1,7 @@
 <template>
     <section class="greeting">
       <h2 class="greeting__title">
-        Привет <input type="text" placeholder="Введите имя" v-model="name">
+        <input type="text" placeholder="Введите имя" v-model="name">
       </h2>
     </section>
 </template>
