@@ -1,23 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import App from './App.vue';
+import Greeting from './components/Greeting.vue';
+import TodoList from './components/TodoList.vue';
 import TodoInfo from './components/TodoInfo.vue';
 
 const routes = [
   {
     path: '/',
-    component: App,
-    children: [
-      {
-        path: '',
-        name: 'TodoList',
-        component: TodoList,
-      },
-      {
-        path: 'todo/:id',
-        name: 'TodoInfo',
-        component: TodoInfo,
-      },
-    ],
+    components: {
+      default: TodoList,
+      greeting: Greeting,
+    },
+  },
+  {
+    path: '/todo/:id',
+    component: TodoInfo,
+    name: 'TodoInfo',
+    props: true,
   },
 ];
 
