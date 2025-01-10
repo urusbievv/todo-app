@@ -6,10 +6,15 @@
     </label>
     <div class="todo-content">
       <input type="text" v-model="todo.content" :disabled="todo.done" />
+      <span class="todo-content__info">
+          <router-link :to="{ name: 'TodoInfo', params: { id: todo.id } }">
+            <img src="../assets/plus.svg" alt="">
+          </router-link>
+      </span>
     </div>
+    
     <div class="actions">
       <button class="delete" @click="removeTodo">Удалить</button>
-      <router-link :to="{ name: 'TodoInfo', params: { id: todo.id } }">Подробнее</router-link>
     </div>
   </div>
 </template>

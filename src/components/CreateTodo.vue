@@ -2,7 +2,7 @@
   <section class="create-todo">
     <form @submit.prevent="addTodo">
       <h4>Создать задачу</h4>
-      <input type="text" placeholder="Запишите задачу" v-model="newTodo.content" />
+      <input type="text" placeholder="" v-model="newTodo.content" />
       <h4>Выбрать категорию</h4>
       <div class="create-todo__options">
         <label>

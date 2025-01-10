@@ -4,17 +4,20 @@
 $primary: #dd38e6;
 $blue: #3a82ee;
 $work: $blue;
-$personal: $primary;
+$d_orange: #eb5d4d;
+$personal: $d_orange;
 $light: #eee;
 $grey: #888;
+$dark_grey: #7b7979;
 $dark: #313154;
-$danger: #ff5b57;
+$danger: $d_orange;
+$text_info: #419284;
 
 $shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 $blue-shadow: 0px 0px 4px #3978d6;
 $business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-$personal-glow: 0px 0px 4px rgba(211, 64, 234, 0.75);
+$personal-glow: 0px 0px 4px #d85648;
 
 * {
   margin: 0;
@@ -151,14 +154,16 @@ input[type="checkbox"] {
   font-size: 1.12rem;
   padding: 1rem 1.5rem;
   color: #fff;
-  background-color: $blue;
+  background-color: $d_orange;
   border-radius: 0.5rem;
-  box-shadow: $blue-shadow;
+  box-shadow: $personal-glow;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
-
+  transition: 0.1s ease-in-out;
   &:hover {
     opacity: 0.9;
+  }
+  &:active {
+    transform: translateY(2px); 
   }
 }
 
@@ -182,13 +187,27 @@ input[type="checkbox"] {
   }
 
   .todo-content {
+    display: flex;
+    align-items: center;
     flex: 1 1 0%;
+    align-items: center;
+    &__info{
+      margin-top: 5px;
+      margin-left: 20px;
+      img{
+        width: 30px;
+        &:hover{
+          opacity: 0.66;
+        }
+      }
+    }
   }
 
   .todo-content input {
     color: $dark;
     font-size: 1.125rem;
   }
+  
 
   .actions {
     display: flex;
@@ -197,22 +216,24 @@ input[type="checkbox"] {
     button {
       display: block;
       padding: 0.5rem;
+      font-size: 1rem;
       border-radius: 0.25rem;
-      color: #fff;
+      color: $danger;
       cursor: pointer;
       transition: 0.2s ease-in-out;
-
       &:hover {
         opacity: 0.75;
       }
-
+      &:active {
+        transform: translateY(2px); 
+      }
       &.edit {
         margin-right: 0.5rem;
         background-color: $primary;
       }
 
       &.delete {
-        background-color: $danger;
+        background-color: #fff;
       }
     }
   }
@@ -234,10 +255,10 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
-   
   &-info {
+    background-color: white; 
     padding: 20px;
-    border: 1px solid #ccc;
+    box-shadow: $light;
     border-radius: 10px;
     margin: 20px;
     width: 100%; 
@@ -278,8 +299,8 @@ input[type="checkbox"] {
       align-items: center;
       &-button {
         padding: 10px 20px;
-        background-color: $blue;
-        box-shadow: $blue-shadow;
+        background-color: $d_orange;
+        box-shadow: $personal-glow;
         color: white;
         border: none;
         border-radius: 5px;
@@ -288,15 +309,20 @@ input[type="checkbox"] {
         &:hover {
           opacity: 0.9;
         }
+        &:active {
+          transform: translateY(2px); 
+        }
       }
 
       &-link {
-        margin-left: 10px;
-        color: #34373a;
+        margin-left: 20px;
+        color: $text_info;
         text-decoration: none;
-
         &:hover {
-          text-decoration: underline; 
+          opacity: 0.75;
+        }
+        &:active {
+          transform: translateY(1px); 
         }
       }
     }
