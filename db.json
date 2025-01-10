@@ -1,3 +1,18 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "61c0",
+      "content": "rac",
+      "category": "work",
+      "done": false,
+      "createdAt": 1736512015766
+    },
+    {
+      "id": "fa60",
+      "content": "ывавыа",
+      "category": "work",
+      "done": false,
+      "createdAt": 1736512634503
+    }
+  ]
 }

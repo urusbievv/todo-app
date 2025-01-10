@@ -9,7 +9,8 @@ $personal: $d_orange;
 $light: #eee;
 $grey: #888;
 $dark_grey: #7b7979;
-$dark: #313154;
+$dark: #37373a;
+$text_label:#4c4c4f;
 $danger: $d_orange;
 $text_info: #419284;
 
@@ -197,7 +198,7 @@ input[type="checkbox"] {
       img{
         width: 30px;
         &:hover{
-          opacity: 0.66;
+          opacity: 0.86;
         }
       }
     }
@@ -257,7 +258,7 @@ input[type="checkbox"] {
   align-items: center;
   &-info {
     background-color: white; 
-    padding: 20px;
+    padding: 30px;
     box-shadow: $light;
     border-radius: 10px;
     margin: 20px;
@@ -267,6 +268,8 @@ input[type="checkbox"] {
       display: block;
       margin-top: 10px;
       font-size: 1.1rem;
+      font-weight: 600;
+      color: $text_label;
       margin-bottom: 10px;
     }
 
@@ -274,29 +277,43 @@ input[type="checkbox"] {
       width: 100%;
       padding: 8px;
       margin-bottom: 15px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc !important;
       border-radius: 5px;
       font-size: 1rem;
     }
     
-    &__select {
-      width: 20%; 
-      padding: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
     &__date {
-      border: 1px solid #ccc;
-      padding: 10px 150px;
+      border: 1px solid #ededed;
+      padding: 30px 100px;
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: $text_label;
       display: flex;
       justify-content: space-between;
+      &-due{
+        font-size: 1.15rem;
+        color: $grey;
+      }
     }
 
     &__save {
       display: flex; 
       align-items: center;
+      justify-content: space-between;
+      &-select {
+        width: 20%; 
+        padding: 8px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        color: $text_label;
+        font-size: 1rem;
+        option{
+          font-size: 1rem;
+          border-radius: 20px;
+          color: $text_label;
+        }
+      }
+
       &-button {
         padding: 10px 20px;
         background-color: $d_orange;
@@ -315,7 +332,7 @@ input[type="checkbox"] {
       }
 
       &-link {
-        margin-left: 20px;
+        margin-left: 330px;
         color: $text_info;
         text-decoration: none;
         &:hover {

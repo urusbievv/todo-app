@@ -8,7 +8,7 @@
       <input type="text" v-model="todo.content" :disabled="todo.done" />
       <span class="todo-content__info">
           <router-link :to="{ name: 'TodoInfo', params: { id: todo.id } }">
-            <img src="../assets/plus.svg" alt="">
+            <img src="../assets/plus-circle.svg" alt="">
           </router-link>
       </span>
     </div>
