@@ -8,6 +8,7 @@
         :todo="todo"
         @remove="removeTodo"
       />
+      <router-view/>
     </div>
   </section>
 </template>

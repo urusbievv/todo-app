@@ -1,6 +1,6 @@
 <template>
   <div class="todo-info">
-    <h1>Информация о задаче</h1>
+    <h3>Информация о задаче</h3>
     <p><strong>Название:</strong> {{ todo.title }}</p>
     <p><strong>Дата создания:</strong> {{ new Date(todo.createdAt).toLocaleString() }}</p>
     <p><strong>Дата окончания:</strong> {{ new Date(todo.dueDate).toLocaleString() }}</p>

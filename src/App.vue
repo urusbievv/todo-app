@@ -3,9 +3,7 @@
     <Greeting />
     <CreateTodo @addTodo="addTodo" />
     <TodoList :todos="todos" @remove="removeTodo" />
-    <router-view />
   </main>
-
 </template>
 
 <script setup>

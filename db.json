@@ -1,53 +1,11 @@
 {
   "todos": [
     {
-      "id": "3967",
-      "content": "dasdsada",
+      "id": "cf29",
+      "content": "sdsads",
       "category": "work",
       "done": false,
-      "createdAt": 1736423241069
-    },
-    {
-      "id": "e423",
-      "content": "sdasdasd",
-      "category": "work",
-      "done": false,
-      "createdAt": 1736423262984
-    },
-    {
-      "id": "77a2",
-      "content": "dfsdfdsfs",
-      "category": "work",
-      "done": false,
-      "createdAt": 1736423472271
-    },
-    {
-      "id": "4ebb",
-      "content": "fdsfdsd",
-      "category": "work",
-      "done": false,
-      "createdAt": 1736430781235
-    },
-    {
-      "id": "c757",
-      "content": "sdasdsa",
-      "category": "work",
-      "done": false,
-      "createdAt": 1736489312665
-    },
-    {
-      "id": "c769",
-      "content": "sdadas",
-      "category": "work",
-      "done": false,
-      "createdAt": 1736489331724
-    },
-    {
-      "id": "126e",
-      "content": "sdasdasd",
-      "category": "personal",
-      "done": false,
-      "createdAt": 1736489435427
+      "createdAt": 1736489892816
     }
   ]
 }
