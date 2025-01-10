@@ -9,9 +9,7 @@
     </div>
     <div class="actions">
       <button class="delete" @click="removeTodo">Удалить</button>
-      <router-link :to="{ name: 'TodoInfo', params: { id: todo.id } }">
-        <button class="info">Информация о задаче</button>
-      </router-link>
+      <router-link :to="{ name: 'TodoInfo', params: { id: todo.id } }">Подробнее</router-link>
     </div>
   </div>
 </template>

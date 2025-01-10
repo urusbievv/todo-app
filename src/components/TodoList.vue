@@ -8,14 +8,13 @@
         :todo="todo"
         @remove="removeTodo"
       />
-      <router-view/>
     </div>
   </section>
 </template>
 
 <script setup>
 import { computed } from 'vue';
-import TodoItem from './TodoItem.vue'
+import TodoItem from './TodoItem.vue';
 
 const props = defineProps({
   todos: {
@@ -31,3 +30,9 @@ const removeTodo = (todo) => {
   emit('remove', todo);
 };
 </script>
+
+<style scoped>
+.todo-list {
+  padding: 20px;
+}
+</style>

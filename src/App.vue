@@ -2,7 +2,7 @@
   <main class="app">
     <Greeting />
     <CreateTodo @addTodo="addTodo" />
-    <TodoList :todos="todos" @remove="removeTodo" />
+    <router-view :todos="todos" @remove="removeTodo" />
   </main>
 </template>
 
