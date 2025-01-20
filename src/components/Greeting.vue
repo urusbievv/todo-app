@@ -6,12 +6,12 @@
     </section>
 </template>
   
-<script setup>
+<script setup lang="ts">
   import { ref, watch, onMounted } from 'vue';
   
-  const name = ref('');
+  const name = ref<string>('');
   
-  watch(name, (newValue) => {
+  watch(name, (newValue: string) => {
     localStorage.setItem('name', newValue);
   });
   

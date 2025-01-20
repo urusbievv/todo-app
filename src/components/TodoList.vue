@@ -12,22 +12,35 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import TodoItem from './TodoItem.vue';
 
-const props = defineProps({
-  todos: {
-    type: Array,
-  },
-});
 
-const emit = defineEmits(['remove']);
 
-const todosASC = computed(() => [...props.todos].sort((a, b) => b.createdAt - a.createdAt));
+interface Todo {
+  id: number; 
+  content: string; 
+  category: string; 
+  done: boolean; 
+  createdAt: number; 
+}
 
-const removeTodo = (todo) => {
-  emit('remove', todo);
+// Определяем свойства компонента
+const props = defineProps<{
+  todos: Todo[] 
+}>();
+
+const emit = defineEmits<{
+  (e: 'remove', todo: Todo): void; 
+}>();
+
+const todosASC = computed(() => 
+  [...props.todos].sort((a, b) => b.createdAt - a.createdAt)
+);
+
+const removeTodo = (todo: Todo) => {
+  emit('remove', todo); // Эмитируем событие удаления с задачей
 };
 </script>
 

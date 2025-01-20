@@ -7,10 +7,10 @@
         id="description"
         class="detail-info__input"
         type="text"
-        v-model="todo.title"
+        v-model="todo.description"
       />
       <div class="detail-info__date">
-        <p>Дата создания: {{ formatDate(todo.createdAt)}}</p>
+        <p>Дата создания: {{ formatDate(todo.createdAt) }}</p>
         <label for="dueDate">Дата окончания:</label>
         <input id="dueDate" type="date" v-model="todo.dueDateFormatted" class="detail-info__date-due"/>
       </div>
@@ -42,18 +42,18 @@ import { onMounted, reactive, watch } from "vue";
 import { fetchTodoById, updateTodo } from "../common/api";
 
 const props = defineProps({
-  todoId: Number,
+  todoId: String,
 });
 
 const emit = defineEmits(["close"]);
 
 const todo = reactive({
-  id: null,
+  id: '', 
   description: "",
   createdAt: new Date().toISOString(),
   dueDate: null,
   assignee: "",
-  status: "",
+  status: "новая",
 })
 
 const formatDate = (date) => {
@@ -64,7 +64,7 @@ const formatDate = (date) => {
 Object.defineProperty(todo, "dueDateFormatted", {
   get() {
     return todo.dueDate
-      ? new Date(todo.dueDate).toISOString().split("T")[0]
+      ? new Date(todo.dueDate).toISOString()
       : "";
   },
   set(value) {
@@ -76,11 +76,21 @@ const loadTodo = async () => {
   if (props.todoId) {
     const fetchedTodo = await fetchTodoById(props.todoId);
     Object.assign(todo, fetchedTodo);
+
+    if (!todo.createdAt) {
+      todo.createdAt = new Date().toISOString();
+    } 
+  }  else {
+    todo.createdAt = new Date().toISOString();
   }
 };
 
 const saveChanges = async () => {
   try {
+    if (!todo.id) {
+      throw new Error("ID задачи не задан.");
+    }
+    
     await updateTodo(todo.id, {
       description: todo.description,
       dueDate: todo.dueDate,
@@ -90,7 +100,7 @@ const saveChanges = async () => {
     alert("Изменения успешно сохранены!");
   } catch (error) {
     console.error("Ошибка при сохранении изменений:", error.message);
-    alert("Не удалось сохранить изменения.");
+    alert("Не удалось сохранить изменения: " + error.message);
   }
 };
 
@@ -106,4 +116,6 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

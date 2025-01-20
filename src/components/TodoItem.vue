@@ -19,19 +19,31 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { deleteTodo } from '../common/api';
 
-const props = defineProps({
-  todo: Object,
-});
 
-const emit = defineEmits(['remove']);
+interface Todo {
+  id: number
+  content: string
+  category: string
+  done: boolean
+  createdAt: number 
+}
+
+
+const props = defineProps<{
+  todo: Todo
+}>()
+const emit = defineEmits<{
+  (e: 'remove', todo: Todo) : void
+}>()
 
 const removeTodo = async () => {
   if (props.todo && props.todo.id) {
-    await deleteTodo(props.todo.id);
-    emit('remove', props.todo);
+    await deleteTodo(props.todo.id)
+    emit('remove', props.todo)
   }
 };
+
 </script>

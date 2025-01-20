@@ -21,12 +21,23 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue';
 
-const emit = defineEmits(['addTodo']);
 
-const newTodo = reactive({
+interface Todo {
+  content: string
+  category: string | null
+  done: boolean
+  createdAt: number
+}
+
+
+const emit = defineEmits<{
+  (e: 'addTodo', todo: Todo): void; 
+}>();
+
+const newTodo = reactive<Todo>({
   content: '',
   category: null,
   done: false,
